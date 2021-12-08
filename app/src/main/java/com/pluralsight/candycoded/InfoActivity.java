@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 import com.squareup.picasso.Picasso;
 import java.io.IOException;
+import java.net.URI;
 import java.util.ArrayList;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -32,7 +33,7 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     // ***
-    // TODO - Task 2 - Launch the Google Maps Activity
+    //Task 2 - Launch the Google Maps Activity
     // ***
     public void createMapIntent(View view) {
         Uri uri = Uri.parse("geo:0,0?q=618 E South St Orlando, FL 32801");
@@ -45,7 +46,14 @@ public class InfoActivity extends AppCompatActivity {
     }
 
     // ***
-    // TODO - Task 3 - Launch the Phone Activity
+    //Task 3 - Launch the Phone Activity
     // ***
+    public void createPhoneIntent(View view) {
+        Intent phoneIntent = new Intent(Intent.ACTION_DIAL);
+
+        Uri uri = Uri.parse("tel:0123456789");
+        phoneIntent.setData(uri);
+        startActivity(phoneIntent);
+    }
 
 }
